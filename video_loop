@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+usage="Loop a video infinitely. 
+         This is mainly to output to a device for
+         continuous and repeated streaming of a video.
+         If output_file is an actual file, this script will eventually fill up the disk.
+
+USAGE: video_repeat output_file input_file
+"
+
+if [[ -z "$2" ]]
+then
+    printf "$usage"
+    exit 1
+fi
+
+ffmpeg -re -stream_loop -1 -i "$2" -map 0:v -f v4l2  "$1"
