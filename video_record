@@ -9,4 +9,4 @@ then
         exit 1
 fi
 
-  ffmpeg -f v4l2 -i "$input_device" -c:v libx264 -vf format=yuv420p -preset ultrafast "$output_device"
+ffmpeg -f v4l2 -i "$2" -c:v libx264 -vf format=yuv420p -preset ultrafast "$1"
