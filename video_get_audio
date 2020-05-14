@@ -1,5 +1,11 @@
 #!/bin/bash
+usage="Extract audio from a video file
+ USAGE: video_get_audio output input
+"
 
-# Extract audio from a video file
-# USAGE: video_get_audio output input
+if [[ -z $2 ]]
+then
+    printf "$usage"
+    exit 1
+fi
 ffmpeg -i "$2" -vn -ab 256 "$1"

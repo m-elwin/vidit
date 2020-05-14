@@ -1,4 +1,10 @@
 #!/bin/bash
-# Mute a video file
-# USAGE: video_mute output.mp4 input.mp4
+usage="Mute (i.e., remove all sound from) a video file
+ USAGE: video_mute output.mp4 input.mp4
+"
+if [[ -z "$2" ]]
+then
+    printf "$usage"
+    exit 1
+fi
 ffmpeg -i "$2" -an "$1"

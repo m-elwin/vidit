@@ -1,7 +1,12 @@
 #!/bin/bash
-#losslessly concatenate video files while keeping audio good
-# see https://trac.ffmpeg.org/wiki/Concatenate#protocol
-# USAGE: video_concat output.mp4 input1.mp4 ... inputN.mp4
+usage="losslessly concatenate video files while keeping audio good
+ see https://trac.ffmpeg.org/wiki/Concatenate#protocol
+ USAGE: video_concat output.mp4 input1.mp4 ... inputN.mp4"
+if [[ -z "$1" ]] || [[ -z "$2" ]]
+then
+    printf "$usage"
+    exit 1
+fi
 concmd="concat:"
 output="$1"
 shift

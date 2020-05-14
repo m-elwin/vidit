@@ -1,11 +1,11 @@
 #!/bin/bash
-# Extract a portion of a video (works for pure audio too)
-# USAGE:
-#   video_extract output input start_time to end_time
-#   video_extract output input start_time for duration
-# start and end time is in the format
-# HH:MM::SS.frac
-# duration is the length of the clip
+usage="Extract a portion of a video (works for pure audio too)
+ USAGE:
+   video_extract output input start_time to end_time
+   video_extract output input start_time for duration
+ start and end time is in the format
+ HH:MM::SS.frac
+ duration is the length of the clip"
 
 case $4 in
     "to")
@@ -15,8 +15,8 @@ case $4 in
         flag=-t
         ;;
     *)
-        echo "Error Specify to or for"
-        exit
+        printf "$usage"
+        exit 1
         ;;
 esac
 
