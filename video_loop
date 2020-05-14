@@ -12,5 +12,5 @@ then
     printf "$usage"
     exit 1
 fi
-
-ffmpeg -re -stream_loop -1 -i "$2" -map 0:v -f v4l2  "$1"
+set -x
+ffmpeg -re -stream_loop -1 -i "$1" -map 0:v -f v4l2  "$2"

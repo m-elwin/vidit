@@ -1,0 +1,19 @@
+#+TITLE Simple Video Editing Utilities
+
+* Usage
+- Scripts wrapping some ffmpeg commands that I've found useful for video manipulation.
+- =./video_xxxx= to see how to use each script
+
+* Instructions for creating a fake webcam
+1. Install v4l2loopback  (AUR package =v4l2loopback-dkms=)
+   - Make sure you have =linux-headers= installed
+2. Create the fake camera device 
+   - =sudo modprobe v4l2loopback exclusive_caps=1 card_label=FakeWebcam=
+   - To load the module on boot create =/etc/modules-load.d/v4l2loopback.conf=
+     =v4l2loopback=
+   - Options are placed in =/etc/modprobe.d/v4l2loopback.conf=
+     =options v4l2loopback exclusive_caps=1 card_label=FakeCamera=
+3. =v4l2-ctl --list-devices= shows you which =/dev/videoX= is the fake camera and which are real cameras
+4. Run =video_loop input_video output_device=
+5. Run =ffplay output_device= to verify that it is working
+6. Run =video_record output_file input_device= to record a video from the webcamera.
