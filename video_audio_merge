@@ -1,5 +1,14 @@
 #!/bin/bash
-# merge a video file with an audio file
-# USAGE video_audio_merge output video audio
+usage=\
+"Merge a video file with an audio file
 
+  USAGE: video_audio_merge output video audio
+"
+
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]
+then
+	printf "$usage"
+	exit 1
+fi
+set -x
 ffmpeg -i "$2" -i "$3" -c:v copy -c:a aac -strict experimental "$1"
