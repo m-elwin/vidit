@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Extract audio from a video file
+# USAGE: video_get_audio output input
+ffmpeg -i "$2" -vn -ab 256 "$1"

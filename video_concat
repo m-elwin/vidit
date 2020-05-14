@@ -1,0 +1,21 @@
+#!/bin/bash
+#losslessly concatenate video files while keeping audio good
+# see https://trac.ffmpeg.org/wiki/Concatenate#protocol
+# USAGE: video_concat output.mp4 input1.mp4 ... inputN.mp4
+concmd="concat:"
+output="$1"
+shift
+#output has been removed from $@
+for file in $@
+do
+    tfile=${file%.*}.ts
+    echo $tfile
+    ffmpeg -i $file -c copy -bsf:v h264_mp4toannexb -f mpegts $tfile
+    concmd="$concmd$tfile|"
+done
+#remove the last | character from concmd
+concmd=${concmd%?}
+ffmpeg -i $concmd -c copy -bsf:a aac_adtstoasc $output
+
+
+

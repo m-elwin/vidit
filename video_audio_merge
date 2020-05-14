@@ -1,0 +1,5 @@
+#!/bin/bash
+# merge a video file with an audio file
+# USAGE video_audio_merge output video audio
+
+ffmpeg -i "$2" -i "$3" -c:v copy -c:a aac -strict experimental "$1"

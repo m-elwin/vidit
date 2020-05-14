@@ -1,0 +1,4 @@
+#!/bin/bash
+# Mute a video file
+# USAGE: video_mute output.mp4 input.mp4
+ffmpeg -i "$2" -an "$1"
