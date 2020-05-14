@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+usage="Record a video from a webcam, in a webcam-friendly format
+ USAGE video_record output_file input_device
+"
+
+if [[ -z "$2" ]]
+then
+        printf "$usage"
+        exit 1
+fi
+
+  ffmpeg -f v4l2 -i "$input_device" -c:v libx264 -vf format=yuv420p -preset ultrafast "$output_device"
