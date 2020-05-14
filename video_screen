@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+usage="Screen record video from Wayland Compositor
+
+Specifically used for streaming to a webcam used by zoom.
+
+Depends on having wf-recorder installed.
+
+USAGE: video_screen output (all|region) 
+"
+
+if [[ -z $2 ]]
+then
+        printf "$usage"
+        exit 1
+fi
+
+# The format is designed for zoom, taken from
+# https://wiki.archlinux.org/index.php/Sway#Screensharing
+wf-recorder --muxer=v4l2 --codec=rawvideo --file="$1" -x yuv420p
