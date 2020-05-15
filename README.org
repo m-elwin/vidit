@@ -1,10 +1,13 @@
-#+TITLE: Simple Video Editing Utilities
-
-* Usage
+#+TITLE: Scripts That I Find Useful
+* System Utilities
+- =install_bootloader= - used to set kernel command line
+  options when using the EFISTUB bootloader
+* Video Editing
+** Usage
 - Scripts wrapping some ffmpeg commands that I've found useful for video manipulation.
 - =./video_xxxx= to see how to use each script
 
-* Instructions for creating a fake webcam
+** Instructions for creating a fake webcam
 1. Install v4l2loopback  (AUR package =v4l2loopback-dkms=)
    - Make sure you have =linux-headers= installed
 2. Create the fake camera device 
