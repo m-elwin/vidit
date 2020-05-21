@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+#Safely clean a cmake build directory
+
+case $PWD in
+    */build)
+        echo -n "Would you like to delete the contents of $PWD (y/n)? "
+        read answer
+        [ "$answer" == "y" ] && rm -rf * ;;
+    *) echo "Not a build directory" ;;
+esac
