@@ -1,17 +1,10 @@
-#+TITLE: Scripts That I Find Useful
-* System Utilities
-- =install_bootloader= - used to set kernel command line
-  options when using the EFISTUB bootloader
-* CMake
-- ~clrbuild~ delete the contents of a directory only if that directory is called build. 
-   Useful for more safely deleting the contents of a CMake build directory
-  
-* Video Editing
-** Usage
+#+TITLE: Simple Video Editing Utilities
+
+* Usage
 - Scripts wrapping some ffmpeg commands that I've found useful for video manipulation.
 - =./video_xxxx= to see how to use each script
-
-** Instructions for creating a fake webcam
+- Lets you extract sections, combine videos, and change the audio
+* Instructions for creating a fake webcam
 1. Install v4l2loopback  (AUR package =v4l2loopback-dkms=)
    - Make sure you have =linux-headers= installed
 2. Create the fake camera device 
