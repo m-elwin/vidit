@@ -1,0 +1,13 @@
+#!/bin/bash
+usage="Convert a video to an animated GIF.
+ See https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
+ USAGE: video_concat output.gif input"
+if [[ -z "$1" ]] || [[ -z "$2" ]]
+then
+    printf "$usage"
+    exit 1
+fi
+
+ffmpeg -i $2 -f gif $1
+
+
