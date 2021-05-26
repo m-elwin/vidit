@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# from https://unix.stackexchange.com/questions/28803/how-can-i-reduce-a-videos-size-with-ffmpeg
+
+usage="video_shrink input output\n 
+shrink a video\n"
+
+if [ -z "$1" ] || [ -z "$2" ]
+then
+   printf "$usage"
+   exit 1
+fi
+
+ffmpeg -i "$1" -vcodec libx265 -filter:v fps=24 -crf 28 -b:a 114k "$2"
